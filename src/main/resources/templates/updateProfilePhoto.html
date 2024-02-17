@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Head content (title, stylesheets, etc.) -->
+</head>
+
+<body>
+
+<header>
+    <h1>Update Profile Photo</h1>
+</header>
+
+<main>
+    <form th:action="@{/user/updateProfilePhoto}" method="post" enctype="multipart/form-data">
+        <label for="profilePhoto">Choose Profile Photo:</label>
+        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" required>
+        <button type="submit">Update Profile Photo</button>
+    </form>
+</main>
+
+</body>
+
+</html>

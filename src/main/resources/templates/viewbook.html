@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light Gray background */
+            color: #333; /* Dark Gray text color */
+        }
+
+        header {
+            background-color: #0d6efd; /* Dark Gray header background */
+            color: #ffffff; /* White text color */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff; /* White link text color */
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        thead th {
+            background-color:#0d6efd; /* Dark Gray header background */
+            color: #fff; /* White text color */
+            padding: 15px;
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd; /* Light Gray border between rows */
+        }
+
+        tbody td:last-child {
+            text-align: center;
+        }
+
+        a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <center>
+        <h2>Books List</h2>
+    </center>
+    <nav>
+        <ul>
+            <li><a th:href="@{/index}">Back to Dashboard</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td>
+                <!-- Edit Link with JavaScript to open update form -->
+                <a th:href="@{'/updatebook/' + ${book.id}}" onclick="openUpdateForm(${book.id})">Edit</a>
+
+
+                <a th:href="@{'/deletebook/' + ${book.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+  </table>
+</main>
+
+<!-- JavaScript to open update form -->
+<script>
+    function openUpdateForm(bookId) {
+        // Redirect to the update form with the book ID
+        window.location.href = '/updatebook/' + bookId;
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Student </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#0d6efd; /* Light Gray background */
+            background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/06/Desktop-Light-Blue-Wallpaper-HD.jpg');
+            color: #333; /* Dark Gray text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff; /* White container background */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: rgba(14, 14, 14, 0.6); /* Dark Blue heading color */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        thead th {
+            background-color: #0d6efd; /* Dark Blue header background */
+            color: #fff; /* White text color */
+            padding: 10px;
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* Light Gray border between rows */
+        }
+
+        tbody td:last-child {
+            text-align: center;
+        }
+
+        button2 {
+            background-color: #da0808; /* Dark Blue button background */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        button {
+            background-color: #2a6505; /* Dark Blue button background */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color:  #0139b7; /* Darker Blue on hover */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <center><h2>Student Management System</h2></center>
+
+    <table id="studentTable">
+        <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>
+                <button onclick="editStudent(this)">Edit</button>
+                <button2 onclick="deleteStudent(this)">Delete</button2>
+            </td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>
+                <button onclick="editStudent(this)">Edit</button>
+                <button2 onclick="deleteStudent(this)">Delete</button2>
+            </td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>
+                <button onclick="editStudent(this)">Edit</button>
+                <button2 onclick="deleteStudent(this)">Delete</button2>
+            </td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>
+                <button onclick="editStudent(this)">Edit</button>
+                <button2 onclick="deleteStudent(this)">Delete</button2>
+            </td>
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function editStudent(button) {
+        var row = button.parentNode.parentNode;
+        var fullName = row.cells[0].innerText;
+        var email = row.cells[1].innerText;
+
+        var newFullName = prompt("Enter new full name:", fullName);
+        var newEmail = prompt("Enter new email:", email);
+
+        if (newFullName !== null && newEmail !== null) {
+            row.cells[0].innerText = newFullName;
+            row.cells[1].innerText = newEmail;
+        }
+    }
+
+    function deleteStudent(button) {
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+</body>
+</html>

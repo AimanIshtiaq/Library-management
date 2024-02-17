@@ -1,0 +1,97 @@
+<!-- deletebook.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Book</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #0d6efd;
+            background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/06/Desktop-Light-Blue-Wallpaper-HD.jpg');
+            color: #fff; /* White text color */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #ffffff; /* White text color */
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background */
+            border: 1px solid #1a237e; /* Dark Blue border */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a237e; /* Dark Blue label color */
+        }
+
+        button {
+            background-color: #0d6efd; /* Dark Blue background */
+            color: #ffffff; /* White text color */
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0d47a1; /* Darker Blue on hover */
+        }
+
+        a {
+            color: rgb(255, 255, 255); /* Blue link color */
+            text-decoration: none;
+            font-weight: bold;
+            font-size:25px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+   <center><h2>Delete Book</h2></center>
+</header>
+
+<main>
+    <h2>Are you sure you want to delete the book?</h2>
+    <p>Title: <span th:text="${book.title}"></span></p>
+    <p>Author: <span th:text="${book.author}"></span></p>
+
+    <form th:action="@{'/deletebook/' + ${book.id}}" method="post">
+        <button type="submit">Delete</button>
+    </form>
+
+    <a th:href="@{/viewbook}">Cancel</a>
+</main>
+</body>
+
+</html>

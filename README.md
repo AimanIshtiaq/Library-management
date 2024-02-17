@@ -1,0 +1,1 @@
+This dashboard is built using Java Spring Boot and provides a user-friendly interface for managing library resources. It allows librarians to perform various tasks such as adding, updating, and deleting books, managing member information, tracking borrowing and returning activities, and generating reports.
